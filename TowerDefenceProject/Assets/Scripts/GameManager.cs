@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,8 +12,9 @@ public class GameManager : MonoBehaviour
     public float _timeBetweenWaves = 5f;
     private float _countDown = 2f;
 
-    private int _waveIndex = 0;
+    public TextMeshProUGUI waveCountdownText;
 
+    private int _waveIndex = 0;
 
     private void Update()
     {
@@ -22,6 +25,8 @@ public class GameManager : MonoBehaviour
         }
 
         _countDown -= Time.deltaTime;
+
+        waveCountdownText.text = Mathf.Round(_countDown).ToString();
     }
 
     IEnumerator SpawnWave()
@@ -41,4 +46,5 @@ public class GameManager : MonoBehaviour
         Instantiate(_enemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
     }
 
+    
 }

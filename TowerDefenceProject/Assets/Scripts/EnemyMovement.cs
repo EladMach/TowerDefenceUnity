@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private Transform target;
     private int wavePointIndex = 0;
 
+    
     private void Start()
     {
         target = Waypoints.wayPoints[0];
@@ -30,9 +31,20 @@ public class EnemyMovement : MonoBehaviour
         if (wavePointIndex >= Waypoints.wayPoints.Length - 1)
         {
             Destroy(gameObject);
+            Debug.Log("Game Over");
             return;
         }
         wavePointIndex = wavePointIndex + 1;
         target = Waypoints.wayPoints[wavePointIndex];
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            Destroy(this.gameObject);
+        }
+
+        
     }
 }

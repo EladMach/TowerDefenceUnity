@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class Torret : MonoBehaviour
 {
+ 
     private Transform target;
+
+    [Header("Attributes")]
+
     public float range = 15f;
+    public float fireRate = 1f;
+    private float fireCountdown = 0f;
+
+    [Header("Unity Setup Fields")]
 
     public string enemyTag = "Enemy";
+
     public Transform barrel;
     public float turnSpeed = 10f;
+
+    public GameObject _bulletPrefab;
+    public Transform firePoint;
+
     
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -55,11 +69,32 @@ public class Torret : MonoBehaviour
         Quaternion lookRoataion = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(barrel.rotation, lookRoataion, Time.deltaTime * turnSpeed).eulerAngles;
         barrel.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+
+        if (fireCountdown <= 0)
+        {
+            Shoot();
+            fireCountdown = 1f / fireRate;
+        }
+
+        fireCountdown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, range);
+    }
+
+    void Shoot()
+    {
+        GameObject bulletGO = (GameObject)Instantiate(_bulletPrefab, firePoint.position, firePoint.rotation);
+
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.Seek(target);
+        }
+        
     }
 }
