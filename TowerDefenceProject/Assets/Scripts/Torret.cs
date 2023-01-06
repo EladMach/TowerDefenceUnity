@@ -23,11 +23,14 @@ public class Torret : MonoBehaviour
     public GameObject _bulletPrefab;
     public Transform firePoint;
 
+    private AudioSource audioSource;
+    
     
 
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        audioSource = GetComponent<AudioSource>();
     }
 
     void UpdateTarget()
@@ -88,13 +91,15 @@ public class Torret : MonoBehaviour
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(_bulletPrefab, firePoint.position, firePoint.rotation);
-
+        audioSource.Play();
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
         {
             bullet.Seek(target);
         }
+
+        
         
     }
 }

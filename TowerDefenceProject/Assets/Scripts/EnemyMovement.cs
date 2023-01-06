@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -10,11 +11,12 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform target;
     private int wavePointIndex = 0;
-    private int goldAmount = 0;
+    public int enemyHP;
     private GameManager gameManager;
     
     private void Start()
     {
+        enemyHP = 2;
         target = Waypoints.wayPoints[0];
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();      
     }
@@ -46,16 +48,23 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            GoldCounter(goldAmount);
-            Destroy(this.gameObject);
+            gameManager.ScoreSystem();
+            enemyHP = enemyHP - 1;
+
+            if (enemyHP == 0)
+            {
+                Destroy(this.gameObject);
+            }
+            
         }
 
-        
+        if (other.CompareTag("EndTower"))
+        {
+            Debug.Log("GAME OVER");
+            //SceneManager.LoadScene(1);
+        }
+  
     }
 
-    public void GoldCounter(int points)
-    {
-        goldAmount += points;
-        gameManager.UpdateGold(goldAmount);
-    }
+   
 }

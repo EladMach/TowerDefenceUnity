@@ -12,8 +12,11 @@ public class Node : MonoBehaviour
     
     private Renderer rend;
 
+    private GameManager gameManager;
+
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rend = GetComponent<Renderer>();
         startColor = rend.material.color;
     }
@@ -36,9 +39,17 @@ public class Node : MonoBehaviour
         }
 
         GameObject turretToBuild = BuildManager.instance.getTurretToBuild();
-        turret = (GameObject) Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
-        
+
+        if (gameManager._score > 0)
+        {
+            turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+        }
+        else
+        {
+            turret = null;
+        }
+
+        gameManager._score--;
     }
 
-    
 }

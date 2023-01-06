@@ -5,10 +5,15 @@ public class Bullet : MonoBehaviour
     private Transform target;
 
     public float _speed = 40f;
-    
+    private GameManager _gameManager;
     public void Seek(Transform _target)
     {
         target = _target;
+    }
+
+    private void Start()
+    {
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -31,10 +36,12 @@ public class Bullet : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
-    void HitTarget()
+    public void HitTarget()
     {
+        
         Debug.Log("We Hit Some");
     }
+
 
 
 }
