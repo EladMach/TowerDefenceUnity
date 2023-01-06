@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -8,11 +10,13 @@ public class EnemyMovement : MonoBehaviour
 
     private Transform target;
     private int wavePointIndex = 0;
-
+    private int goldAmount = 0;
+    private GameManager gameManager;
     
     private void Start()
     {
         target = Waypoints.wayPoints[0];
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();      
     }
 
     private void Update()
@@ -38,13 +42,20 @@ public class EnemyMovement : MonoBehaviour
         target = Waypoints.wayPoints[wavePointIndex];
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))
         {
+            GoldCounter(goldAmount);
             Destroy(this.gameObject);
         }
 
         
+    }
+
+    public void GoldCounter(int points)
+    {
+        goldAmount += points;
+        gameManager.UpdateGold(goldAmount);
     }
 }

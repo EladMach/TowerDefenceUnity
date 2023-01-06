@@ -13,9 +13,14 @@ public class GameManager : MonoBehaviour
     private float _countDown = 2f;
 
     public TextMeshProUGUI waveCountdownText;
+    public TextMeshProUGUI goldCounterText;
 
     private int _waveIndex = 0;
 
+    private void Start()
+    {
+        goldCounterText.text = "Gold: " + 0;
+    }
     private void Update()
     {
         if (_countDown <= 0f)
@@ -46,5 +51,8 @@ public class GameManager : MonoBehaviour
         Instantiate(_enemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
     }
 
-    
+    public void UpdateGold(int goldscore)
+    {
+        goldCounterText.text = "Gold " + goldscore.ToString();
+    }
 }
