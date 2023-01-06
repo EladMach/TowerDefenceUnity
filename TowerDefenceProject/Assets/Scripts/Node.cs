@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Node : MonoBehaviour
@@ -36,5 +37,8 @@ public class Node : MonoBehaviour
 
         GameObject turretToBuild = BuildManager.instance.getTurretToBuild();
         turret = (GameObject) Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+        
     }
+
+    
 }

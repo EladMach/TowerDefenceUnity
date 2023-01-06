@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e4c44e05ee631084b8491adac9cb9e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +144,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1b4104d51ee586d4fa83d1c9a391d752, type: 2}
+  - {fileID: 2100000, guid: e4c44e05ee631084b8491adac9cb9e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,7 +175,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400008}
-  - component: {fileID: 11400000}
   - component: {fileID: 6500000}
   - component: {fileID: 6961253628742857502}
   m_Layer: 29
@@ -193,8 +192,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -1, y: -0.73716, z: -0.092145}
+  m_LocalScale: {x: 2.2286, y: 2.2286, z: 2.2286}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 400010}
@@ -202,155 +201,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 133e386909aab3849b1c0551e32ca96f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabID: 1
-  instanceID: -1
-  unitName: CanonTower
-  iconSprite: {fileID: 21300000, guid: 327e0f38e31393e428e5e9ee22af6f3b, type: 3}
-  desp: A slow firing tower that cause aoe damage and slows target down
-  defaultHP: 30
-  fullHP: 20
-  HP: 20
-  HPRegenRate: 0.5
-  HPStaggerDuration: 10
-  defaultShield: 0
-  fullShield: 0
-  shield: 0
-  shieldRegenRate: 1
-  shieldStaggerDuration: 1
-  immuneToCrit: 0
-  immuneToSlow: 0
-  immuneToStun: 0
-  currentActiveStat: 0
-  stats:
-  - damageMin: 2
-    damageMax: 4
-    cooldown: 1.5
-    clipSize: 0
-    reloadDuration: 0
-    range: 7
-    aoeRadius: 2
-    crit:
-      chance: 0
-      dmgMultiplier: 0
-    stun:
-      chance: 0
-      duration: 0
-    slow:
-      effectID: 0
-      duration: 0
-      slowMultiplier: 0
-    dot:
-      effectID: 0
-      duration: 0
-      interval: 0
-      value: 0
-    buff:
-      effectID: 0
-      damageBuff: 0
-      cooldownBuff: 0
-      rangeBuff: 0
-      criticalBuff: 0.1
-      regenHP: 0
-    rscGain: 0000000000000000
-    cost: 1400000000000000
-    buildDuration: 1
-    unBuildDuration: 1
-    shootObjectT: {fileID: 0}
-    shootObject: {fileID: 11400000, guid: f2168ca10c430ea46b7088236d3ff81e, type: 3}
-    useCustomDesp: 0
-    desp: 'Damage: 5-6
-
-      Cooldown: 3
-
-      Cause aoe damage and slow targets'
-  - damageMin: 3
-    damageMax: 5
-    cooldown: 1
-    clipSize: 0
-    reloadDuration: 0
-    range: 7
-    aoeRadius: 2
-    crit:
-      chance: 0
-      dmgMultiplier: 0
-    stun:
-      chance: 0
-      duration: 0
-    slow:
-      effectID: 0
-      duration: 0
-      slowMultiplier: 0
-    dot:
-      effectID: 0
-      duration: 0
-      interval: 0
-      value: 0
-    buff:
-      effectID: 0
-      damageBuff: 0
-      cooldownBuff: 0
-      rangeBuff: 0
-      criticalBuff: 0.1
-      regenHP: 0
-    rscGain: 0000000000000000
-    cost: 1400000000000000
-    buildDuration: 1
-    unBuildDuration: 1
-    shootObjectT: {fileID: 0}
-    shootObject: {fileID: 0}
-    useCustomDesp: 0
-    desp: 'Damage: 5-6
-
-      Cooldown: 3
-
-      Cause aoe damage and slow targets'
-  dead: 0
-  stunned: 0
-  slowMultiplier: 1
-  slowEffectList: []
-  buffEffect: []
-  localShootObjectT: {fileID: 0}
-  localShootObject: {fileID: 0}
-  shootPoints:
-  - {fileID: 400004}
-  delayBetweenShootPoint: 0
-  targetPoint: {fileID: 400006}
-  hitThreshold: 0.25
-  thisObj: {fileID: 100004}
-  thisT: {fileID: 0}
-  turretObject: {fileID: 400006}
-  barrelObject: {fileID: 0}
-  rotateTurretAimInXAxis: 1
-  target: {fileID: 0}
-  targetPriority: 4
-  buffedUnit: []
-  activeBuffList: []
-  damageBuffMul: 0.1
-  cooldownBuffMul: 0.1
-  rangeBuffMul: 0.1
-  criticalBuffMod: 0.1
-  regenHPBuff: 1
-  deadEffectObj: {fileID: 0}
-  type: 0
-  targetMode: 2
-  disableInBuildManager: 0
-  builtDuration: 0
-  buildDuration: 0
-  prevLevelTower: {fileID: 11400000, guid: b94ece5c617fc624eb8833fe264e5586, type: 3}
-  nextLevelTower: {fileID: 11400000, guid: 121a98afee5bf28489d75f5d2538f73e, type: 3}
-  value: 
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -379,7 +229,7 @@ MonoBehaviour:
   range: 15
   fireRate: 1
   enemyTag: Enemy
-  barrel: {fileID: 400014}
+  barrel: {fileID: 400006}
   turnSpeed: 10
   _bulletPrefab: {fileID: 7337204775436745592, guid: 2b0df09ffd5824743b75e5cdcef3df03,
     type: 3}
@@ -542,7 +392,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a16cc6ed8e47400468feee0f772c166c, type: 2}
+  - {fileID: 2100000, guid: 3c0b01cecdc5e2f47900e102c183fc28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -626,7 +476,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 40d005d13cd90aa4aa8c5717b656d697, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
