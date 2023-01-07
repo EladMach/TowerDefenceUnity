@@ -22,9 +22,9 @@ public class Torret : MonoBehaviour
 
     public GameObject _bulletPrefab;
     public Transform firePoint;
+    
 
     private AudioSource audioSource;
-    
     
 
     void Start()
@@ -91,7 +91,7 @@ public class Torret : MonoBehaviour
     void Shoot()
     {
         GameObject bulletGO = (GameObject)Instantiate(_bulletPrefab, firePoint.position, firePoint.rotation);
-        audioSource.Play();
+        
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
@@ -99,7 +99,7 @@ public class Torret : MonoBehaviour
             bullet.Seek(target);
         }
 
-        
+        audioSource.Play();
         
     }
 }

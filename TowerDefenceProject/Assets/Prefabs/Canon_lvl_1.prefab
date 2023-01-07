@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 400008}
   - component: {fileID: 6500000}
   - component: {fileID: 6961253628742857502}
-  - component: {fileID: 62749864802308296}
+  - component: {fileID: 7017239119305421627}
   m_Layer: 29
   m_Name: Canon_lvl_1
   m_TagString: Untagged
@@ -69,7 +69,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 7337204775436745592, guid: 2b0df09ffd5824743b75e5cdcef3df03,
     type: 3}
   firePoint: {fileID: 8046510371203349445}
---- !u!82 &62749864802308296
+--- !u!82 &7017239119305421627
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +81,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 05dd73e4c033f624da56b95008c077ec, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.391
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -8,6 +8,7 @@ public class BuildManager : MonoBehaviour
     private GameObject turretToBuild;
     
     public GameObject standardTurredPrefab;
+    public GameObject level2TurredPrefab;
 
 
     private void Awake()
@@ -19,17 +20,14 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    
-
-    private void Start()
-    {
-        turretToBuild = standardTurredPrefab;
-    }
-
-    
-
+  
     public GameObject getTurretToBuild()
     { 
         return turretToBuild;
+    }
+
+    public void SetTurretToBuild(GameObject turret)
+    {
+        turretToBuild = turret;
     }
 }

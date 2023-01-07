@@ -39,7 +39,7 @@ public class Bullet : MonoBehaviour
     public void HitTarget()
     {
         
-        Debug.Log("We Hit Some");
+        
     }
 
 
