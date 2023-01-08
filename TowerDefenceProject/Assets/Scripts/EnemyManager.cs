@@ -53,11 +53,12 @@ public class EnemyManager : MonoBehaviour
     {
         if (other.CompareTag("Bullet"))
         {
-            gameManager.ScoreSystem();
+            
             enemyHP = enemyHP - 1;
 
             if (enemyHP == 0)
             {
+                gameManager.ScoreSystem();
                 Destroy(this.gameObject);
             }
             

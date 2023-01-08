@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     private float _countDown = 5f;
     public int _score;
     private int _waveIndex = 0;
+    
 
     [Header("Text UI")]
     public TextMeshProUGUI waveCountdownText;
@@ -37,20 +39,11 @@ public class GameManager : MonoBehaviour
         TextUI();
 
         _score = (Mathf.Clamp(_score, 0, 100));
-    
-    }
-
-    IEnumerator SpawnWave()
-    {
-        _waveIndex++;
-
-        for (int i = 0; i < _waveIndex; i++)
-        {
-            SpawnEnemyEasy();
-            yield return new WaitForSeconds(0.5f);
-        }
+        
         
     }
+
+    
 
     void SpawnEnemyEasy()
     {
@@ -69,10 +62,12 @@ public class GameManager : MonoBehaviour
     {
         if (_countDown <= 0f)
         {
-            StartCoroutine(SpawnWave());
-            _countDown = _timeBetweenWaves;
-        }
+            StartCoroutine(SpawnEnemyWave());
 
+            _countDown = _timeBetweenWaves;
+            
+        }
+        
         _countDown -= Time.deltaTime;
 
         waveCountdownText.text = Mathf.Round(_countDown).ToString();
@@ -89,5 +84,22 @@ public class GameManager : MonoBehaviour
         waveNumText.text = "Wave: " + _waveIndex.ToString();
     }
 
+  
     
+     IEnumerator SpawnEnemyWave()
+     {
+         _waveIndex++;
+
+         for (int i = 0; i < _waveIndex; i++)
+         {
+             SpawnEnemyMedium();
+             yield return new WaitForSeconds(0.5f);
+            
+         }
+         
+
+    }
+
+    
+
 }
