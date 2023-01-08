@@ -22,7 +22,7 @@ public class Torret : MonoBehaviour
 
     public GameObject _bulletPrefab;
     public Transform firePoint;
-    
+    public Transform firePoint2;
 
     private AudioSource audioSource;
     
@@ -76,6 +76,7 @@ public class Torret : MonoBehaviour
         if (fireCountdown <= 0)
         {
             Shoot();
+            
             fireCountdown = 1f / fireRate;
         }
 
@@ -102,4 +103,7 @@ public class Torret : MonoBehaviour
         audioSource.Play();
         
     }
+
+  
+    
 }

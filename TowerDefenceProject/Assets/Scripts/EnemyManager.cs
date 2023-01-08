@@ -52,8 +52,7 @@ public class EnemyManager : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet"))
-        {
-            
+        {           
             enemyHP = enemyHP - 1;
 
             if (enemyHP == 0)
@@ -62,6 +61,17 @@ public class EnemyManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
             
+        }
+        if (other.CompareTag("Bulletlvl2"))
+        {
+            enemyHP = enemyHP - 2;
+
+            if (enemyHP == 0)
+            {
+                gameManager.ScoreSystem();
+                Destroy(this.gameObject);
+            }
+
         }
 
         if (other.CompareTag("EndTower"))

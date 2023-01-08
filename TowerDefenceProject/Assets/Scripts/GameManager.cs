@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public int _score;
     private int _waveIndex = 0;
     
+    
 
     [Header("Text UI")]
     public TextMeshProUGUI waveCountdownText;
@@ -43,8 +44,6 @@ public class GameManager : MonoBehaviour
        
     }
 
-    
-
     void SpawnEnemyEasy()
     {
         Instantiate(_enemyEasyPrefab, _spawnPoint.position, _spawnPoint.rotation);
@@ -60,30 +59,25 @@ public class GameManager : MonoBehaviour
 
     void Countdown()
     {
+
         if (_countDown <= 0f)
         {
             _waveIndex++;
 
-            if (_waveIndex <= 3)
+            if (_waveIndex <= 2)
             {
-                StartCoroutine(SpawnEnemyEasyWave());
-                if (_waveIndex >= 3)
-                {
-                    StopCoroutine(SpawnEnemyEasyWave());
-                }
+                StartCoroutine(SpawnEnemyEasyWave());   
             }
-            if (_waveIndex >= 3)
+            if (_waveIndex >= 3 && _waveIndex <= 5)
             {
-                    StartCoroutine(SpawnEnemyMediumWave());
-                    if (_waveIndex >= 5)
-                    {
-                        StopCoroutine(SpawnEnemyMediumWave());
-                    }
+                StartCoroutine(SpawnEnemyMediumWave());
             }
-                
+            if (_waveIndex >= 6)
+            {
+                StartCoroutine(SpawnEnemyHardWave());
+            }
             
-            
-            
+
             _countDown = _timeBetweenWaves;    
         }
         
@@ -91,7 +85,7 @@ public class GameManager : MonoBehaviour
         
         _countDown -= Time.deltaTime;
 
-        waveCountdownText.text = Mathf.Round(_countDown).ToString();
+        waveCountdownText.text = "Next Wave In: " +  Mathf.Round(_countDown).ToString();
     }
 
     public void ScoreSystem()
@@ -121,22 +115,26 @@ public class GameManager : MonoBehaviour
     IEnumerator SpawnEnemyMediumWave()
     {
 
+        StopCoroutine(SpawnEnemyEasyWave());
+
         for (int i = 0; i < _waveIndex; i++)
         {
             SpawnEnemyMedium();
             yield return new WaitForSeconds(0.5f);
+            
         }
-
+        
     }
 
-   // IEnumerator SpawnEnemyHardWave()
-    //{
-       // for (int i = 0; i < _waveIndex; i++)
-       // {
-          //  SpawnEnemyHard();
-        //    yield return new WaitForSeconds(0.5f);
-       // }
+   IEnumerator SpawnEnemyHardWave()
+   {
+        StopCoroutine(SpawnEnemyMediumWave());
+        for (int i = 0; i < _waveIndex; i++)
+        {
+            SpawnEnemyHard();
+            yield return new WaitForSeconds(0.5f);
+        }
 
-   // }
+   }
 
 }
