@@ -62,11 +62,19 @@ public class GameManager : MonoBehaviour
     {
         if (_countDown <= 0f)
         {
-            StartCoroutine(SpawnEnemyWave());
-
-            _countDown = _timeBetweenWaves;
-            
+            if (_waveIndex <= 4)
+            {
+                StartCoroutine(SpawnEnemyEasyWave());
+            }
+            if (_waveIndex >= 4)
+            {
+                StopCoroutine(SpawnEnemyEasyWave());
+                StartCoroutine(SpawnEnemyMediumWave());
+            }
+            _countDown = _timeBetweenWaves;    
         }
+        
+
         
         _countDown -= Time.deltaTime;
 
@@ -84,22 +92,30 @@ public class GameManager : MonoBehaviour
         waveNumText.text = "Wave: " + _waveIndex.ToString();
     }
 
-  
-    
-     IEnumerator SpawnEnemyWave()
-     {
-         _waveIndex++;
 
-         for (int i = 0; i < _waveIndex; i++)
-         {
-             SpawnEnemyMedium();
-             yield return new WaitForSeconds(0.5f);
-            
-         }
-         
+
+    IEnumerator SpawnEnemyEasyWave()
+    {
+        _waveIndex++;
+
+        for (int i = 0; i < _waveIndex; i++)
+        {
+            SpawnEnemyEasy();
+            yield return new WaitForSeconds(0.5f);
+        }
 
     }
 
-    
+    IEnumerator SpawnEnemyMediumWave()
+    {
+        _waveIndex++;
+
+        for (int i = 0; i < _waveIndex; i++)
+        {
+            SpawnEnemyMedium();
+            yield return new WaitForSeconds(0.5f);
+        }
+
+    }
 
 }
