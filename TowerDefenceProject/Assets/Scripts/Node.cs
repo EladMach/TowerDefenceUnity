@@ -4,16 +4,13 @@ using UnityEngine.EventSystems;
 
 public class Node : MonoBehaviour
 {
+    [Header("Unity Attributes")]
     public Color hoverColor;
-    private Color startColor;
-
     public Vector3 positionOffset;
-
+    private Color startColor;   
     private GameObject turret;
     private AudioSource audioSource;
-    
     private Renderer rend;
-
     private GameManager gameManager;
     private BuildManager buildManager;
 
@@ -62,20 +59,26 @@ public class Node : MonoBehaviour
 
         GameObject turretToBuild = buildManager.getTurretToBuild();
 
-        if (gameManager._score >= 2 && turretToBuild == buildManager.standardTurredPrefab)
+        if (gameManager._score >= 2 && turretToBuild == buildManager.standardTurretPrefab)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
             gameManager._score = gameManager._score - 2;
         }
         
-
-        if (gameManager._score >= 4 && turretToBuild == buildManager.level2TurredPrefab)
+        if (gameManager._score >= 4 && turretToBuild == buildManager.level2TurretPrefab)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
             gameManager._score = gameManager._score - 4;
-        }       
+        }
+
+        if (gameManager._score >= 6 && turretToBuild == buildManager.level3TurretPrefab)
+        {
+            turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+            audioSource.Play();
+            gameManager._score = gameManager._score - 6;
+        }
         else
         {
             turret = null;

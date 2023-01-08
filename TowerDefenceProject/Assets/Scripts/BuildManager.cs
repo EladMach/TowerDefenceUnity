@@ -6,9 +6,9 @@ public class BuildManager : MonoBehaviour
 
     [Header("GameObjects")]
     private GameObject turretToBuild;
-    
-    public GameObject standardTurredPrefab;
-    public GameObject level2TurredPrefab;
+    public GameObject standardTurretPrefab;
+    public GameObject level2TurretPrefab;
+    public GameObject level3TurretPrefab;
 
 
     private void Awake()

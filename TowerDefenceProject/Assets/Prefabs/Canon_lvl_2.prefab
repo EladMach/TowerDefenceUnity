@@ -181,15 +181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5aa46311bffe1949af79abe8b46be63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  fireRate: 0.6
+  range: 20
+  fireRate: 1
   enemyTag: Enemy
   barrel: {fileID: 4000012604501588}
   turnSpeed: 10
   _bulletPrefab: {fileID: 7337204775436745592, guid: 4e24844048d128c46979fa8f01e6ed1e,
     type: 3}
   firePoint: {fileID: 4000012658081726}
-  firePoint2: {fileID: 4000010779566028}
 --- !u!82 &6063959798282994524
 AudioSource:
   m_ObjectHideFlags: 0

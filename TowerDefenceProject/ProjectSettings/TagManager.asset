@@ -10,6 +10,8 @@ TagManager:
   - EnemyEasy
   - EnemyMedium
   - EnemyHard
+  - Bulletlvl2
+  - Bulletlvl3
   layers:
   - Default
   - TransparentFX

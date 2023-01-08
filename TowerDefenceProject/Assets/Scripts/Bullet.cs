@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private Transform target;
-
+    [Header("Variables")]
     public float _speed = 40f;
+
+    [Header("Unity Attributes")]
+    private Transform target;
     private GameManager _gameManager;
     private EnemyManager _enemyManager;
+
+
     public void Seek(Transform _target)
     {
         target = _target;

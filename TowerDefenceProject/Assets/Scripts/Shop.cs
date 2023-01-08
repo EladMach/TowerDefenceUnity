@@ -9,20 +9,26 @@ public class Shop : MonoBehaviour
     
     private void Start()
     {
-        buildManager = BuildManager.instance;
-        
+        buildManager = BuildManager.instance;   
     }
     public void PurchaseStandardTurret()
     {
         Debug.Log("Standard Turret Purchased");
         
-        buildManager.SetTurretToBuild(buildManager.standardTurredPrefab);
+        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
     }
 
     public void PurchaseLevel2Turret()
     {
         Debug.Log("Level 2 Turret Purchased");
         
-        buildManager.SetTurretToBuild(buildManager.level2TurredPrefab);
+        buildManager.SetTurretToBuild(buildManager.level2TurretPrefab);
+    }
+
+    public void PurchaseLevel3Turret()
+    {
+        Debug.Log("Level 3 Turret Purchased");
+
+        buildManager.SetTurretToBuild(buildManager.level3TurretPrefab);
     }
 }

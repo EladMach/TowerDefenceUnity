@@ -7,21 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class EnemyManager : MonoBehaviour
 {
+    [Header("Variables")]
     public float _speed = 10f;
-
-    public GameObject _enemyPrefab;
-    
-
-    private Transform target;
-    private int wavePointIndex = 0;
     public int enemyHP;
-    
+    private int wavePointIndex = 0;
+
+    [Header("Unity Attributes")]
+    public GameObject _enemyPrefab;    
+    private Transform target;
     private GameManager gameManager;
     
     private void Start()
-    {
-        
-        
+    {  
         target = Waypoints.wayPoints[0];
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();      
     }
@@ -35,6 +32,8 @@ public class EnemyManager : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        enemyHP = Mathf.Clamp(enemyHP, 0, 6);
     }
 
     void GetNextWaypoint()
@@ -74,9 +73,22 @@ public class EnemyManager : MonoBehaviour
 
         }
 
+        if (other.CompareTag("Bulletlvl3"))
+        {
+            enemyHP = enemyHP - 5;
+
+            if (enemyHP == 0)
+            {
+                gameManager.ScoreSystem();
+                Destroy(this.gameObject);
+            }
+
+        }
+
         if (other.CompareTag("EndTower"))
         {
             Debug.Log("GAME OVER");
+            gameManager._score = gameManager._score - 1;
             //SceneManager.LoadScene(1);
         }
   

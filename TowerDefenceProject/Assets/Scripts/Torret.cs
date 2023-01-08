@@ -5,27 +5,20 @@ using UnityEngine;
 public class Torret : MonoBehaviour
 {
  
-    private Transform target;
 
-    [Header("Attributes")]
-
+    [Header("Variables")]
     public float range = 15f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
-
-    [Header("Unity Setup Fields")]
-
     public string enemyTag;
-
-    public Transform barrel;
     public float turnSpeed = 10f;
 
+    [Header("Unity Attributes")]
+    public Transform barrel;
     public GameObject _bulletPrefab;
     public Transform firePoint;
-    public Transform firePoint2;
-
     private AudioSource audioSource;
-    
+    private Transform target;
 
     void Start()
     {
