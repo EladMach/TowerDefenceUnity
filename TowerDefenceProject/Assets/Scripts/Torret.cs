@@ -15,7 +15,7 @@ public class Torret : MonoBehaviour
 
     [Header("Unity Setup Fields")]
 
-    public string enemyTag = "EnemyEasy";
+    public string enemyTag;
 
     public Transform barrel;
     public float turnSpeed = 10f;

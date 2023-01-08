@@ -39,8 +39,8 @@ public class GameManager : MonoBehaviour
         TextUI();
 
         _score = (Mathf.Clamp(_score, 0, 100));
-        
-        
+
+       
     }
 
     
@@ -62,15 +62,28 @@ public class GameManager : MonoBehaviour
     {
         if (_countDown <= 0f)
         {
-            if (_waveIndex <= 4)
+            _waveIndex++;
+
+            if (_waveIndex <= 3)
             {
                 StartCoroutine(SpawnEnemyEasyWave());
+                if (_waveIndex >= 3)
+                {
+                    StopCoroutine(SpawnEnemyEasyWave());
+                }
             }
-            if (_waveIndex >= 4)
+            if (_waveIndex >= 3)
             {
-                StopCoroutine(SpawnEnemyEasyWave());
-                StartCoroutine(SpawnEnemyMediumWave());
+                    StartCoroutine(SpawnEnemyMediumWave());
+                    if (_waveIndex >= 5)
+                    {
+                        StopCoroutine(SpawnEnemyMediumWave());
+                    }
             }
+                
+            
+            
+            
             _countDown = _timeBetweenWaves;    
         }
         
@@ -96,7 +109,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemyEasyWave()
     {
-        _waveIndex++;
 
         for (int i = 0; i < _waveIndex; i++)
         {
@@ -108,7 +120,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnEnemyMediumWave()
     {
-        _waveIndex++;
 
         for (int i = 0; i < _waveIndex; i++)
         {
@@ -117,5 +128,15 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+   // IEnumerator SpawnEnemyHardWave()
+    //{
+       // for (int i = 0; i < _waveIndex; i++)
+       // {
+          //  SpawnEnemyHard();
+        //    yield return new WaitForSeconds(0.5f);
+       // }
+
+   // }
 
 }

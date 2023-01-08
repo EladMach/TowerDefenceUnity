@@ -67,7 +67,6 @@ public class Node : MonoBehaviour
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
             gameManager._score = gameManager._score - 2;
-            
         }
         
 
@@ -76,14 +75,11 @@ public class Node : MonoBehaviour
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
             gameManager._score = gameManager._score - 4;
-        }
-        
+        }       
         else
         {
             turret = null;
         }
-
-        
 
     }
 
