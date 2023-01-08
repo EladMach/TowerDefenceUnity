@@ -6,7 +6,9 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
     [Header("Transforms")]
-    public Transform _enemyPrefab;
+    public Transform _enemyEasyPrefab;
+    public Transform _enemyMediumPrefab;
+    public Transform _enemyHardPrefab;
     public Transform _spawnPoint;
 
     [Header("Variables")]
@@ -44,15 +46,23 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < _waveIndex; i++)
         {
-            SpawnEnemy();
+            SpawnEnemyEasy();
             yield return new WaitForSeconds(0.5f);
         }
         
     }
 
-    void SpawnEnemy()
+    void SpawnEnemyEasy()
     {
-        Instantiate(_enemyPrefab, _spawnPoint.position, _spawnPoint.rotation);
+        Instantiate(_enemyEasyPrefab, _spawnPoint.position, _spawnPoint.rotation);
+    }
+    void SpawnEnemyMedium()
+    {
+        Instantiate(_enemyMediumPrefab, _spawnPoint.position, _spawnPoint.rotation);
+    }
+    void SpawnEnemyHard()
+    {
+        Instantiate(_enemyHardPrefab, _spawnPoint.position, _spawnPoint.rotation);
     }
 
     void Countdown()
@@ -78,4 +88,6 @@ public class GameManager : MonoBehaviour
         scoreText.text = "Score: " + _score.ToString();
         waveNumText.text = "Wave: " + _waveIndex.ToString();
     }
+
+    
 }

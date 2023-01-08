@@ -62,7 +62,7 @@ public class Node : MonoBehaviour
 
         GameObject turretToBuild = buildManager.getTurretToBuild();
 
-        if (gameManager._score > 0 && turretToBuild == buildManager.standardTurredPrefab)
+        if (gameManager._score >= 2 && turretToBuild == buildManager.standardTurredPrefab)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
@@ -71,7 +71,7 @@ public class Node : MonoBehaviour
         }
         
 
-        if (gameManager._score > 0 && turretToBuild == buildManager.level2TurredPrefab)
+        if (gameManager._score >= 4 && turretToBuild == buildManager.level2TurredPrefab)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();

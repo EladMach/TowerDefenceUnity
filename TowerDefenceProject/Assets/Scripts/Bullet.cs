@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 
     public float _speed = 40f;
     private GameManager _gameManager;
+    private EnemyManager _enemyManager;
     public void Seek(Transform _target)
     {
         target = _target;
@@ -14,6 +15,7 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
     }
 
     private void Update()

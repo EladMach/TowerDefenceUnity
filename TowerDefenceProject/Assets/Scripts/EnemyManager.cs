@@ -5,18 +5,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     public float _speed = 10f;
+
+    public GameObject _enemyPrefab;
+    
 
     private Transform target;
     private int wavePointIndex = 0;
     public int enemyHP;
+    
     private GameManager gameManager;
     
     private void Start()
     {
-        enemyHP = 2;
+        
+        
         target = Waypoints.wayPoints[0];
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();      
     }

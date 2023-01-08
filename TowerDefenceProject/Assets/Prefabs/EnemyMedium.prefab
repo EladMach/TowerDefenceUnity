@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -4097090261247975426}
   - component: {fileID: 1356105240927323427}
   m_Layer: 0
-  m_Name: Enemy 1
-  m_TagString: Enemy
+  m_Name: EnemyMedium
+  m_TagString: EnemyMedium
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 40d005d13cd90aa4aa8c5717b656d697, type: 2}
+  - {fileID: 2100000, guid: e4c44e05ee631084b8491adac9cb9e64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,4 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 10
-  enemyHP: 0
+  _enemyPrefab: {fileID: 5084319095997266998}
+  enemyHP: 4

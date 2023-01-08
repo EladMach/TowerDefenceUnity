@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Bullet
   - EndTower
+  - EnemyEasy
+  - EnemyMedium
+  - EnemyHard
   layers:
   - Default
   - TransparentFX
