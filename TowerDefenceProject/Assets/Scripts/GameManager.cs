@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Variables")]
     public float _timeBetweenWaves = 5f;
-    private float _countDown = 2f;
+    private float _countDown = 5f;
     public int _score;
     private int _waveIndex = 0;
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        _score = 10;
+        _score = 5;
         
    
     }

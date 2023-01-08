@@ -62,18 +62,28 @@ public class Node : MonoBehaviour
 
         GameObject turretToBuild = buildManager.getTurretToBuild();
 
-        if (gameManager._score > 0)
+        if (gameManager._score > 0 && turretToBuild == buildManager.standardTurredPrefab)
         {
             turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
             audioSource.Play();
+            gameManager._score = gameManager._score - 2;
+            
         }
+        
+
+        if (gameManager._score > 0 && turretToBuild == buildManager.level2TurredPrefab)
+        {
+            turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);
+            audioSource.Play();
+            gameManager._score = gameManager._score - 4;
+        }
+        
         else
         {
             turret = null;
         }
-
          
-        gameManager._score--;
+        
     }
 
 }

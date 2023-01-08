@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 15
-  fireRate: 1
+  fireRate: 0.5
   enemyTag: Enemy
   barrel: {fileID: 8044774126444083847}
   turnSpeed: 10
