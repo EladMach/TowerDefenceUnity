@@ -68,8 +68,7 @@ public class Torret : MonoBehaviour
 
         if (fireCountdown <= 0)
         {
-            Shoot();
-            
+            Shoot();           
             fireCountdown = 1f / fireRate;
         }
 

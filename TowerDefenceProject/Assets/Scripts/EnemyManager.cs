@@ -54,22 +54,14 @@ public class EnemyManager : MonoBehaviour
         {           
             enemyHP = enemyHP - 1;
 
-            if (enemyHP == 0)
-            {
-                gameManager.ScoreSystem();
-                Destroy(this.gameObject);
-            }
+            OnEnemyDeath();
             
         }
         if (other.CompareTag("Bulletlvl2"))
         {
             enemyHP = enemyHP - 2;
 
-            if (enemyHP == 0)
-            {
-                gameManager.ScoreSystem();
-                Destroy(this.gameObject);
-            }
+            OnEnemyDeath();
 
         }
 
@@ -77,11 +69,7 @@ public class EnemyManager : MonoBehaviour
         {
             enemyHP = enemyHP - 5;
 
-            if (enemyHP == 0)
-            {
-                gameManager.ScoreSystem();
-                Destroy(this.gameObject);
-            }
+            OnEnemyDeath();
 
         }
 
@@ -94,5 +82,13 @@ public class EnemyManager : MonoBehaviour
   
     }
 
+    void OnEnemyDeath()
+    {
+        if (enemyHP == 0)
+        {
+            gameManager.ScoreSystem();
+            Destroy(this.gameObject);
+        }
+    }
    
 }
