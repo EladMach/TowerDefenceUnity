@@ -44,8 +44,7 @@ public class Bullet : MonoBehaviour
 
     public void HitTarget()
     {
-        
-        
+        Debug.Log(gameObject.name);  
     }
 
 
