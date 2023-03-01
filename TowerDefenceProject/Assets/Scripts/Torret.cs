@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Torret : MonoBehaviour
 {
- 
 
     [Header("Variables")]
     public float range = 15f;
